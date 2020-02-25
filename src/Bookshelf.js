@@ -17,7 +17,7 @@ class Bookshelf extends Component {
         const shelfTypes = [
             { type: 'currentlyReading', title: 'Currently Reading' },
             { type: 'wantToRead', title: 'Want to Read' },
-            { type: 'read', title: 'Read' }
+            { type: 'read', title: 'Read' },
         ];
 
         return (
@@ -28,6 +28,7 @@ class Bookshelf extends Component {
                     <div className="list-books-content">
                         {shelfTypes.map((shelf,index)=>{
                             const shelfBooks=books.filter(book=>book.shelf===shelf.type);
+
                             return(
 
                                     <div className="bookshelf" key={index}>

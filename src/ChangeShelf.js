@@ -8,23 +8,22 @@ class ChangeShelf extends Component {
         books: PropTypes.array.isRequired,
         changeShelf: PropTypes.func.isRequired
     };
+
+    updateShelf=(event)=> {
+        this.props.changeShelf(this.props.book,event.target.value);
+    }
+    getShelf =(book)=>{
+        const currentShelf =this.props.books.find(b=>b.id===book.id);
+        if(currentShelf)
+            return currentShelf.shelf;
+        else return 'none'
+
+    };
     render() {
-        const {book,books,changeShelf} = this.props;
-        // set current shelf to none as default
-        let currentShelf ='none';
-
-        for(let item of books){
-            if(item.id===book.id){
-                currentShelf=item.shelf;
-                break;
-            }
-
-        }
-
-
+        const {book} = this.props;
         return (
             <div className="book-shelf-changer">
-                <select onChange={this.updateShelf} defaultValue={currentShelf}>
+                <select onChange={this.updateShelf} value={this.getShelf(book)}>
                     <option value="none" disabled>
                         Move to...
                     </option>
@@ -37,10 +36,7 @@ class ChangeShelf extends Component {
         );
     }
 
-    updateShelf=(event)=> {
-        this.props.changeShelf(this.props.book,event.target.value);
 
-    }
 }
 
 export default ChangeShelf;
