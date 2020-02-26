@@ -22,7 +22,7 @@ class ChangeShelf extends Component {
     render() {
         const {book} = this.props;
         return (
-            <div className="book-shelf-changer">
+            <div className={`book-shelf-changer ${book.shelf}`}>
                 <select onChange={this.updateShelf} value={this.getShelf(book)}>
                     <option value="none" disabled>
                         Move to...

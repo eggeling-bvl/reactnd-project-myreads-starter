@@ -26,20 +26,18 @@ class Bookshelf extends Component {
                         <h1>MyReads</h1>
                     </div>
                     <div className="list-books-content">
-                        {shelfTypes.map((shelf,index)=>{
+                        {shelfTypes.map((shelf)=>{
                             const shelfBooks=books.filter(book=>book.shelf===shelf.type);
 
                             return(
 
-                                    <div className="bookshelf" key={index}>
+                                    <div className="bookshelf" key={shelf.type}>
                                         <h2 className="bookshelf-title">{shelf.title}</h2>
                                         <div className="bookshelf-books">
                                             <BookList books={shelfBooks} changeShelf={changeShelf}/>
                                         </div>
                                     </div>
-
-
-                            );
+                       );
 
 
                         })}

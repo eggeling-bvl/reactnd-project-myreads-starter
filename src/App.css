@@ -196,3 +196,14 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+.book-shelf-changer.currentlyReading {
+  background-color: darkred;
+}
+
+.book-shelf-changer.wantToRead {
+  background-color: gold;
+}
+
+.book-shelf-changer.read {
+  background-color: slategray;
+}
